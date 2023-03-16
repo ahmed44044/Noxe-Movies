@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="border w-25 mb-4"></div>
+            <h2>Trending <br/>All Movies <br/>
+            To Watch Right Now</h2>
+            <p class="text-muted">most watched-movies by day</p>
+            <div class="border w-100 mt-4"></div>
+            </div>
+        </div>
+        <div *ngFor="let all of trendingAll" class="col-md-2">
+            <div class="movie">
+                <a [routerLink]="['/moviedetails',all.id]">
+                <img class="w-100" [src]="imagePrefix+all.poster_path" alt="">
+                <h3 class="h6 mb-3">{{all.title|watch}}</h3>
+                <p>{{all.overview|seemore:10}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>

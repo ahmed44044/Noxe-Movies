@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="p-5 d-flex justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination pagination-sm">
+          
+              <li class="cursor-pointer" *ngFor="let page of pages" (click)="test(page)" class="page-item"><a class="page-link cursor-pointer bg-transparent" >{{page}}</a></li>
+            </ul>
+          </nav>
+    </div>
+    <div class="row py-3 justify-content-center">
+    <div class="p-3">
+        <input type="text" [(ngModel)]="term" class="form-control" placeholder="search by title" name="" id="">
+    </div>
+    
+        <div *ngFor="let movie of trendingAll|searchPipe:term" class="col-md-2">
+            <div class="movie">
+                <a [routerLink]="['/moviedetails',movie.id]">
+                <img class="w-100" [src]="imagePrefix+movie.poster_path" alt="">
+                <h3 class="h6 mb-3">{{movie.title}}</h3>
+                <p>{{movie.overview|seemore:15}}</p>
+            </a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
